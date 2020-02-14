@@ -20,6 +20,9 @@ $(function() {
   $(document).pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])', '#pjax-container').on('pjax:start', function() {
     console.log('pjax:start');
   })
-  ReactRailsUJS.detectEvents()
+  .on('pjax:end', function() {
+    console.log('pjax:end');
+    // ReactRailsUJS.mountComponents() // Uncommenting this forces components to re-render
+  })
 });
 
